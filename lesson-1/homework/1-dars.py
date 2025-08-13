@@ -1,0 +1,2 @@
+country = "Uzbekistan"
+print(country)

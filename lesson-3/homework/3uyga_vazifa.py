@@ -26,7 +26,7 @@ ls=['Paris','London','Moscow','Tashkent']
 if 'Paris' in ls:
     print('bor')
 else:
-    prinr('yoq')
+    print('yoq')
 
 ## 6. Duplicate a List Without Using Loops
 ls=[1,2,3,4]

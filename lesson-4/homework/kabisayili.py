@@ -46,14 +46,3 @@ b={1,2,3,5,5,'asd'}
 b.add(7)
 print(b)
 
-## 4. Remove Item(s) from a Set
-a={1,2,3,5,5,'asd'}
-a.remove(3)
-print(a)
-
-## Remove an Item if Present in the Set
-a={1,2,3,5,5,'asd'}
-try:
-    a.remove(1)
-except: Exception
-print(a)

@@ -1,15 +1,14 @@
-1. Modify String with Underscores
 def undscor(txt):
-i=2
-while i&lt;len(txt)-1:
-if txt[i].lower() in &quot;aoieu&quot;:
-i+=1
-else:
-txt=txt[:i+1]+&quot;_&quot;+txt[i+1:]
-i+=4
-return txt
-print(undscor(&#39;esreydfsgrt bmgwabt&#39;))
+    i = 2
+    while i < len(txt) - 1:
+        if txt[i].lower() in "aeiou":
+            i += 1
+        else:
+            txt = txt[:i+1] + "_" + txt[i+1:]
+            i += 4
+    return txt
 
+print(undscor('esreydfsgrt bmgwabt'))
 2. Integer Squares Exercise
 n=5
 for i in range(n):
@@ -30,12 +29,13 @@ print(&quot;&quot;)
 
 Exercise 3: Calculate sum of all numbers from 1 to a given number
 try:
-n=int(input(&quot;Enter number &quot;))
-result=0
-for i in range(n+1):
-result+=i
-print(f&quot;Sum is: {result}&quot;)
-except: ValueError
+    n = int(input("Enter number "))
+    result = 0
+    for i in range(n + 1):
+        result += i
+    print(f"Sum is: {result}")
+except ValueError:
+    print("Invalid input")
 
 Exercise 4: Print multiplication table of a given number
 try:
@@ -49,7 +49,7 @@ numbers = [12, 75, 150, 180, 145, 525, 50]
 for i in range(len(numbers)):
 try:
 print(numbers[2**i])
-except: IndexError
+except: try-except
 
 Exercise 6: Count the total number of digits in a number
 try:
@@ -89,25 +89,19 @@ else:
 print(i)
 
 Exercise 12: Display Fibonacci series up to 10 terms
-for i in range(10):
-if i==0:
-a=0
-b=0
-if i==1:
-a=0
-b=1
-if i==2:
-a=0
-b=1
-c=a+b
-a=b
-b=c
-print(c)
+a, b = 0, 1
+print(a)
+print(b)
+for i in range(8):
+    c = a + b
+    print(c)
+    a = b
+    b = c
 
 Exercise 13: Find the factorial of a given number
-fac=1
-for i in range(1,6):
-fac=fac*i
+fac = 1
+for i in range(1, 6):
+    fac *= i
 print(fac)
 
 4. Return Uncommon Elements of Lists

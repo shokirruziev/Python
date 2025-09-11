@@ -1,82 +1,90 @@
-import threading
+Файл "1.txt" прикреплен.Цепочка открыта. Одно прочитанное сообщение.
 
-# Prime number checker
-def is_prime(n):
-    if n < 2:
-        return False
-    for i in range(2, int(n ** 0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+Перейти к содержимому
+Gmail используется с программой чтения с экрана
+Сообщения
+Занято 29 % от 15 ГБ
+Условия использования · Конфиденциальность · Правила программы
+Последние действия в аккаунте: 2 минуты назад
+Подробные сведения
+# 1. math_operations.py
 
-# Worker function for threads
-def prime_worker(start, end, result):
-    for num in range(start, end + 1):
-        if is_prime(num):
-            result.append(num)
+def add(a, b):
+    return a + b
 
-def threaded_prime_checker(start, end, num_threads=4):
-    threads = []
-    result = []
-    step = (end - start + 1) // num_threads
+def subtract(a, b):
+    return a - b
 
-    for i in range(num_threads):
-        sub_start = start + i * step
-        sub_end = start + (i + 1) * step - 1 if i < num_threads - 1 else end
-        thread = threading.Thread(target=prime_worker, args=(sub_start, sub_end, result))
-        threads.append(thread)
-        thread.start()
+def multiply(a, b):
+    return a * b
 
-    for thread in threads:
-        thread.join()
+def divide(a, b):
+    if b == 0:
+        return "Error: division by zero"
+    return a / b
 
-    return sorted(result)
+# 2. string_utils.py
 
+def reverse_string(s):
+    return s[::-1]
 
-# Example usage
-if __name__ == "__main__":
-    primes = threaded_prime_checker(1, 100, num_threads=4)
-    print("Prime numbers:", primes)
-import threading
-from collections import Counter
+def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in s if char in vowels)
 
-# Worker function to count words
-def word_count_worker(lines, counter):
-    local_counter = Counter()
-    for line in lines:
-        words = line.strip().split()
-        local_counter.update(words)
-    counter.append(local_counter)
+# 3. geometry/circle.py
+import math
 
-def threaded_word_count(filename, num_threads=4):
-    # Read file
-    with open(filename, "r", encoding="utf-8") as f:
-        lines = f.readlines()
+def calculate_area(radius):
+    return math.pi * radius ** 2
 
-    # Split lines between threads
-    step = len(lines) // num_threads
-    threads = []
-    counters = []
+def calculate_circumference(radius):
+    return 2 * math.pi * radius
 
-    for i in range(num_threads):
-        sub_lines = lines[i*step : (i+1)*step] if i < num_threads - 1 else lines[i*step:]
-        thread = threading.Thread(target=word_count_worker, args=(sub_lines, counters))
-        threads.append(thread)
-        thread.start()
+from .circle import calculate_area, calculate_circumference
 
-    for thread in threads:
-        thread.join()
+# 4. file_operations/file_reader.py
 
-    # Merge results
-    total_counter = Counter()
-    for c in counters:
-        total_counter.update(c)
+def read_file(file_path):
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            return f.read()
+    except FileNotFoundError:
+        return "File not found."
 
-    return total_counter
+# 5. file_operations/file_writer.py
 
+def write_file(file_path, content):
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+    return "File written successfully."
 
-# Example usage
-if __name__ == "__main__":
-    filename = "sample.txt"  # o‘zing fayl nomini yoz
-    result = threaded_word_count(filename, num_threads=4)
-    print("Word occurrences:\n", result.most_common(10))
+from .file_reader import read_file
+from .file_writer import write_file
+
+# 6. main.py
+from math_operations import add, subtract, multiply, divide
+from string_utils import reverse_string, count_vowels
+from geometry import calculate_area, calculate_circumference
+from file_operations import read_file, write_file
+
+# Math operations
+print("Add:", add(5, 3))
+print("Subtract:", subtract(10, 4))
+print("Multiply:", multiply(6, 7))
+print("Divide:", divide(20, 5))
+
+# String utils
+print("Reversed:", reverse_string("Python"))
+print("Vowel count:", count_vowels("OpenAI ChatGPT"))
+
+# Geometry
+print("Circle area:", calculate_area(5))
+print("Circle circumference:", calculate_circumference(5))
+
+# File operations
+file_path = "test.txt"
+write_file(file_path, "Hello, this is a test file!")
+print("File content:", read_file(file_path))
+hw11.txt
+Отображается файл "hw11.txt"

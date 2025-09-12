@@ -1,12 +1,4 @@
-Файл "1.txt" прикреплен.Цепочка открыта. Одно прочитанное сообщение.
 
-Перейти к содержимому
-Gmail используется с программой чтения с экрана
-Сообщения
-Занято 29 % от 15 ГБ
-Условия использования · Конфиденциальность · Правила программы
-Последние действия в аккаунте: 2 минуты назад
-Подробные сведения
 # 1. math_operations.py
 
 def add(a, b):
@@ -86,5 +78,3 @@ print("Circle circumference:", calculate_circumference(5))
 file_path = "test.txt"
 write_file(file_path, "Hello, this is a test file!")
 print("File content:", read_file(file_path))
-hw11.txt
-Отображается файл "hw11.txt"
